@@ -4,9 +4,9 @@ var buildPath = path.resolve(__dirname, "dist");
 var nodeModulesPath = path.resolve(__dirname, "node_modules");
 //var TransferWebpackPlugin = require("transfer-webpack-plugin");
 
-var config = {
+module.exports = {
   entry: {
-    "app": path.join(__dirname, "./src/app.js"),
+    "app": path.join(__dirname, "./src/components/Layout.js"),
     vendors: ["react","react-dom"]
   },
   resolve: {
@@ -17,7 +17,7 @@ var config = {
     filename: '[name].js'
   },
   plugins: [
-    //new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendors', "vendors.js"),
     new webpack.optimize.DedupePlugin(),
@@ -68,5 +68,3 @@ var config = {
     configFile: ".eslintrc"
   },
 };
-
-module.exports = config;

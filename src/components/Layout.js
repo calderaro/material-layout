@@ -34,6 +34,7 @@ export default React.createClass({
     }
   },
   toggle(){
+    console.log("toggle!")
     const {isopen, width} = this.state;
     this.setState({ isopen: !isopen });
   },
@@ -50,7 +51,6 @@ export default React.createClass({
         boxSizing: "border-box",
         minHeight: "100%",
         padding: "0 !important",
-        backgroundColor: "#f0f2f5",
         transition: "all 420ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
         overflowX: "hidden",
       }
@@ -62,7 +62,7 @@ export default React.createClass({
 
     return (
       <div>
-        <LeftNav {...this.props} {...this.state} toggle={this.toggle}/>
+        <LeftBar {...this.props} {...this.state} toggle={this.toggle}/>
         <div style={style.pageWrapper}>
           <TopBar {...this.props} tap={this.toggle}/>
           {this.props.children}

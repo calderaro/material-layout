@@ -32,6 +32,7 @@ export default React.createClass({
         backgroundSize: '100%',
         display: "flex",
         justifyContent: "center",
+        ...this.props.headerStyle,
       },
       avatar: {
         width: "89%",
@@ -82,7 +83,7 @@ export default React.createClass({
       <div style={style.container} onClick={this.props.toggle}>
         <div style={style.leftNav}  onClick={this.click}>
           <header style={style.header}>
-            <img src="./static/img/logo.png" style={style.avatar}/>
+            <img src={this.props.headerImg} style={style.avatar}/>
           </header>
           <ul style={style.ul}>
             {menuItems2.map((item,i) => (
